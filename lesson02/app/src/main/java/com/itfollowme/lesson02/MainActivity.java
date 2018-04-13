@@ -2,6 +2,7 @@ package com.itfollowme.lesson02;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,5 +12,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+    }
+
+
+    public void numberOnClick(View view) {
     }
 }

@@ -4,7 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.CursorAdapter;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -31,9 +31,16 @@ public class ListBookActivity extends AppCompatActivity {
 
     Cursor c = db.query("book",columns,null,null,null,null,null);
 
-    adapter = new SimpleCursorAdapter(this,R.layout.book_item,c,columns,views, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+    //adapter = new SimpleCursorAdapter(this,R.layout.book_item,c,columns,views, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
 
-    mLvBooks.setAdapter(adapter);
+    //mLvBooks.setAdapter(adapter);
 
+    while(c.moveToNext()){
+      int id = c.getInt(0);
+      String title = c.getString(1);
+      int price = c.getInt(2);
+      String isbn = c.getString(3);
+      Log.i("lesson08",id+" "+title + " "+price+"  "+isbn);
+    }
   }
 }

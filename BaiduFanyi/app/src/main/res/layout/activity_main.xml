@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context="com.itfollowme.baidufanyi.MainActivity">
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Spinner
+      android:id="@+id/sp_from"
+      android:layout_weight="1"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"></Spinner>
+    <TextView
+      android:text="--"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+    <Spinner
+      android:id="@+id/sp_to"
+      android:layout_weight="1"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"></Spinner>
+  </LinearLayout>
+  <EditText
+    android:id="@+id/et_src"
+    android:lines="4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+  <Button
+    android:onClick="translate"
+    android:text="翻译"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+  <TextView
+    android:id="@+id/tv_result"
+    android:lines="4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+</LinearLayout>

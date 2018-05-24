@@ -69,4 +69,13 @@ public class FanyiResponse implements Serializable {
       this.dst = dst;
     }
   }
+
+  @Override
+  public String toString() {
+    return "FanyiResponse{" +
+        "from='" + from + '\'' +
+        ", to='" + to + '\'' +
+        ", transResult=" + transResult +
+        '}';
+  }
 }

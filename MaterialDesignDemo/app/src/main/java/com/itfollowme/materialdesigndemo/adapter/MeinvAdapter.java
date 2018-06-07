@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,6 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.itfollowme.materialdesigndemo.R;
 import com.itfollowme.materialdesigndemo.adapter.MeinvAdapter.MeinvViewHolder;
-import com.itfollowme.materialdesigndemo.model.MeinvResult;
 import com.itfollowme.materialdesigndemo.model.MeinvResult.MeinvPhoto;
 import java.util.List;
 
@@ -21,11 +21,13 @@ import java.util.List;
 
 public class MeinvAdapter extends RecyclerView.Adapter<MeinvViewHolder> {
 
-  private MeinvResult meinvResult;
+  private List<MeinvPhoto> meinvPhotos;
   private Context context;
 
-  public MeinvAdapter(Context context,MeinvResult meinvResult) {
-    this.meinvResult = meinvResult;
+
+
+  public MeinvAdapter(Context context,List<MeinvPhoto> meinvPhotos) {
+    this.meinvPhotos = meinvPhotos;
     this.context = context;
   }
 
@@ -38,14 +40,15 @@ public class MeinvAdapter extends RecyclerView.Adapter<MeinvViewHolder> {
 
   @Override
   public void onBindViewHolder(@NonNull MeinvViewHolder holder, int position) {
-    String url = meinvResult.getResults().get(position).getUrl();
+    String url = meinvPhotos.get(position).getUrl();
+    Log.i("meinv","----"+url);
     Glide.with(context).load(url).into(holder.photo);
   }
 
   @Override
   public int getItemCount() {
-    List<MeinvPhoto> photos = meinvResult.getResults();
-    return photos.size();
+
+    return meinvPhotos.size();
   }
 
   public static class MeinvViewHolder extends ViewHolder {

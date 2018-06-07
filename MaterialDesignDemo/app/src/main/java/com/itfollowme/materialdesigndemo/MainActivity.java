@@ -16,6 +16,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import com.itfollowme.materialdesigndemo.presenter.IPresenterMeinv;
+import com.itfollowme.materialdesigndemo.presenter.impl.MeinvPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +53,12 @@ public class MainActivity extends AppCompatActivity
     mViewPager = findViewById(R.id.vp_zhihu_main);
     fragments = new ArrayList<>();
     fragments.add(new ZhihuFragment());
-    fragments.add(new FuliFragment());
+
+    FuliFragment fuliFragment = new FuliFragment();
+    IPresenterMeinv presenterMeinv = new MeinvPresenter(fuliFragment);
+    fuliFragment.setPresenterMeinv(presenterMeinv);
+
+    fragments.add(fuliFragment);
     fragments.add(new ZhihuFragment());
     fragments.add(new ZhihuFragment());
     fragments.add(new ZhihuFragment());
